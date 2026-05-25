@@ -54,16 +54,10 @@ const SNAPSHOT_MAX = 5;
 // API: doGet + include
 // ====================================================================
 function doGet(e) {
-  const tpl = HtmlService.createTemplateFromFile('Index');
-  tpl.initialView = (e && e.parameter && e.parameter.view) || 'inicio';
-  return tpl.evaluate()
+  return HtmlService.createHtmlOutputFromFile('Index')
     .setTitle('Gestión MP 2026 — H.H.H.A.')
     .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)
     .addMetaTag('viewport', 'width=device-width, initial-scale=1.0');
-}
-
-function include(name) {
-  return HtmlService.createHtmlOutputFromFile(name).getContent();
 }
 
 // ====================================================================
